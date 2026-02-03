@@ -14,7 +14,7 @@ using QuasiMonteCarlo, StableRNGs
 start_time = now()
 
 # Define the updated Rossler system
-function rossler_with_control!(du, u, p, t)
+function bouali_with_control!(du, u, p, t)
 	a, b, c, d, k1, k2, k3 = p
 	xm, ym, zm, xs, ys, zs = u
 
@@ -38,7 +38,7 @@ tspan = (0.0, 100.0)
 
 dt = 0.001
 
-prob = ODEProblem(rossler_with_control!, u0, tspan, p)
+prob = ODEProblem(bouali_with_control!, u0, tspan, p)
 
 sol = solve(prob, Tsit5(), dt = dt, adaptive = false)
 
